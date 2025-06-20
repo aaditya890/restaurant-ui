@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common"
-import { Component, OnInit, OnDestroy } from "@angular/core"
+import { Component,  OnInit,  OnDestroy } from "@angular/core"
 
 interface FoodItem {
   id: number
@@ -67,6 +67,17 @@ interface HowItWorksStep {
   numberBg: string
   accentColor: string
   actionText: string
+}
+
+interface SpecialOffer {
+  id: number
+  title: string
+  description: string
+  discount: string
+  icon: string
+  validUntil: string
+  minOrder: string
+  buttonText: string
 }
 
 @Component({
@@ -272,6 +283,71 @@ export class AppComponent implements OnInit, OnDestroy {
       date: "4 days ago",
       orderType: "Pickup",
     },
+    {
+      id: 7,
+      name: "Maria Garcia",
+      avatar: "👩‍🍳",
+      avatarBg: "linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%)",
+      rating: 5,
+      comment:
+        "As a chef myself, I'm impressed by the quality and presentation. The flavors are authentic and well-balanced.",
+      date: "3 days ago",
+      orderType: "Dine-in",
+    },
+    {
+      id: 8,
+      name: "James Wilson",
+      avatar: "👨‍🎓",
+      avatarBg: "linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)",
+      rating: 4,
+      comment:
+        "Great student discounts and the portions are huge! Perfect for late-night study sessions. Fast delivery too.",
+      date: "1 day ago",
+      orderType: "Delivery",
+    },
+    {
+      id: 9,
+      name: "Sophie Turner",
+      avatar: "👩‍💻",
+      avatarBg: "linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%)",
+      rating: 5,
+      comment: "The online ordering system is so user-friendly! Love the customization options and real-time tracking.",
+      date: "4 days ago",
+      orderType: "Pickup",
+    },
+  ]
+
+  specialOffers: SpecialOffer[] = [
+    {
+      id: 1,
+      title: "Weekend Special",
+      description: "Get 25% off on all pizza orders this weekend. Perfect for family gatherings!",
+      discount: "25%",
+      icon: "🍕",
+      validUntil: "Dec 31, 2024",
+      minOrder: "$20",
+      buttonText: "Claim Offer",
+    },
+    {
+      id: 2,
+      title: "Student Discount",
+      description: "Show your student ID and get 20% off on any order. Valid for dine-in and takeaway.",
+      discount: "20%",
+      icon: "🎓",
+      validUntil: "Ongoing",
+      minOrder: "$15",
+      buttonText: "Get Discount",
+    },
+    {
+      id: 3,
+      title: "First Order Bonus",
+      description: "New customers get 30% off their first order plus free delivery!",
+      discount: "30%",
+      icon: "🎉",
+      validUntil: "Limited Time",
+      minOrder: "$25",
+      buttonText: "Order Now",
+    },
   ]
 
   howItWorksSteps: HowItWorksStep[] = [
@@ -333,12 +409,23 @@ export class AppComponent implements OnInit, OnDestroy {
   // Menu state
   activeMenuCategory = "all"
 
+  // Reviews slider state
+  currentReviewSlide = 0
+  reviewAnimationState: "enter" | "center" | "exit" = "center"
+  isReviewTransitioning = false
+  reviewSlides: CustomerReview[][] = []
+
   private autoRotationTimer: any
   private centerTimer: any
   private exitTimer: any
+  private reviewSliderTimer: any
+  private reviewCenterTimer: any
+  private reviewExitTimer: any
 
   ngOnInit() {
     this.startAutoRotation()
+    this.initializeReviewSlider()
+    this.startReviewSlider()
   }
 
   ngOnDestroy() {
@@ -389,6 +476,54 @@ export class AppComponent implements OnInit, OnDestroy {
     return this.menuItems.filter((item) => item.category === this.activeMenuCategory)
   }
 
+  private initializeReviewSlider(): void {
+    // Group reviews into slides of 3 for desktop, 2 for tablet, 1 for mobile
+    const reviewsPerSlide = 3
+    this.reviewSlides = []
+
+    for (let i = 0; i < this.customerReviews.length; i += reviewsPerSlide) {
+      this.reviewSlides.push(this.customerReviews.slice(i, i + reviewsPerSlide))
+    }
+  }
+
+  private startReviewSlider(): void {
+    this.reviewSliderTimer = setTimeout(() => {
+      if (!this.isReviewTransitioning) {
+        const nextSlide = (this.currentReviewSlide + 1) % this.reviewSlides.length
+        this.triggerReviewTransition(nextSlide)
+      }
+      this.startReviewSlider()
+    }, 5000) // Change slide every 5 seconds
+  }
+
+  private triggerReviewTransition(newSlide: number): void {
+    if (this.isReviewTransitioning) return
+
+    this.isReviewTransitioning = true
+    this.reviewAnimationState = "exit"
+
+    this.reviewExitTimer = setTimeout(() => {
+      this.currentReviewSlide = newSlide
+      this.reviewAnimationState = "enter"
+
+      this.reviewCenterTimer = setTimeout(() => {
+        this.reviewAnimationState = "center"
+        this.isReviewTransitioning = false
+      }, 600)
+    }, 400)
+  }
+
+  goToReviewSlide(slideIndex: number): void {
+    if (slideIndex === this.currentReviewSlide || this.isReviewTransitioning) return
+
+    this.clearReviewTimers()
+    this.triggerReviewTransition(slideIndex)
+
+    setTimeout(() => {
+      this.startReviewSlider()
+    }, 3000)
+  }
+
   private triggerFoodTransition(newIndex: number): void {
     if (this.isTransitioning) return
 
@@ -428,6 +563,22 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.exitTimer) {
       clearTimeout(this.exitTimer)
       this.exitTimer = null
+    }
+    this.clearReviewTimers()
+  }
+
+  private clearReviewTimers(): void {
+    if (this.reviewSliderTimer) {
+      clearTimeout(this.reviewSliderTimer)
+      this.reviewSliderTimer = null
+    }
+    if (this.reviewCenterTimer) {
+      clearTimeout(this.reviewCenterTimer)
+      this.reviewCenterTimer = null
+    }
+    if (this.reviewExitTimer) {
+      clearTimeout(this.reviewExitTimer)
+      this.reviewExitTimer = null
     }
   }
 
@@ -474,11 +625,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.activeMenuCategory = categoryId
   }
 
-  addToCart(item: MenuItem): void {
-    console.log(`Added to cart: ${item.name}`)
-    // Add your cart logic here
-  }
-
   getStarArray(rating: number): number[] {
     return Array(Math.floor(rating)).fill(0)
   }
@@ -516,6 +662,12 @@ export class AppComponent implements OnInit, OnDestroy {
     // Add app download logic here
   }
 
+  // Special offers methods
+  claimOffer(offerId: number): void {
+    console.log(`Claiming offer ${offerId}`)
+    // Add offer claiming logic here
+  }
+
   // TrackBy functions for performance
   trackByCardId(index: number, card: any): any {
     return card.id
@@ -535,5 +687,26 @@ export class AppComponent implements OnInit, OnDestroy {
 
   trackByStepId(index: number, step: any): any {
     return step.id
+  }
+
+  trackByOfferId(index: number, offer: any): any {
+    return offer.id
+  }
+
+  trackBySlideIndex(index: number, slide: any): any {
+    return index
+  }
+
+  getProgressWidth(label: string): string {
+    switch (label.toLowerCase()) {
+      case "calories":
+        return "75%"
+      case "protein":
+        return "60%"
+      case "fat":
+        return "45%"
+      default:
+        return "50%"
+    }
   }
 }

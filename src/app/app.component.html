@@ -1,148 +1,157 @@
-<div class="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50">
-  <!-- Header -->
-  <nav class="flex items-center justify-between px-6 md:px-14 py-6 max-w-full mx-auto">
-    <div class="text-2xl font-bold text-gray-800">Foodie</div>
-    <div class="hidden lg:flex space-x-8 text-gray-600 text-sm font-medium">
-      <a href="#home" class="hover:text-orange-500 transition">HOME</a>
-      <a href="#about" class="hover:text-orange-500 transition">ABOUT</a>
-      <a href="#menu" class="hover:text-orange-500 transition">MENU</a>
-      <a href="#reviews" class="hover:text-orange-500 transition">REVIEWS</a>
-      <a href="#contact" class="hover:text-orange-500 transition">CONTACT</a>
-    </div>
-    <div class="flex items-center space-x-4">
-      <button (click)="onLogin()" class="text-orange-500 hover:text-orange-600 text-sm font-medium">LOGIN</button>
-      <button (click)="onSignUp()"
-        class="bg-orange-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-orange-600">
-        SIGN UP
-      </button>
-    </div>
-  </nav>
+<div class="min-h-screen bg-gradient-to-br from-orange-50 to-pink-50 overflow-x-hidden">
+ <!-- Header -->
+<nav class="flex items-center justify-between px-4 md:px-16 py-6 max-w-screen mx-auto overflow-hidden">
+  <div class="text-xl md:text-2xl font-bold text-gray-800">Foodie</div>
 
-  <!-- Hero Content -->
-  <div id="home" class="max-w-full mx-auto pb-10">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start relative">
+  <div class="hidden lg:flex space-x-4 md:space-x-8 text-gray-600 text-sm font-medium">
+    <a href="#home" class="hover:text-orange-500 transition">HOME</a>
+    <a href="#about" class="hover:text-orange-500 transition">ABOUT</a>
+    <a href="#menu" class="hover:text-orange-500 transition">MENU</a>
+    <a href="#reviews" class="hover:text-orange-500 transition">REVIEWS</a>
+    <a href="#contact" class="hover:text-orange-500 transition">CONTACT</a>
+  </div>
 
-      <!-- Left -->
-      <div class="pt-8 space-y-4 pl-3 md:pl-10">
-        <h1 class="text-5xl lg:text-6xl xl:text-7xl font-medium text-red-500 font-[Caprasimo]">
-          All Fast Food is<br>
-          <span>
-            Available at
-            <span class="relative inline-block ml-2">
-              <span class="relative z-10 text-red-500">Foodie</span>
-              <svg class="absolute -bottom-1 left-0 w-full h-6 md:h-8 -z-0 opacity-60" viewBox="0 0 100 10"
-                preserveAspectRatio="none">
-                <path d="M0,5 C25,10 75,0 100,5" stroke="#facc15" stroke-width="3" fill="none" stroke-linecap="round" />
-              </svg>
-            </span>
+  <div class="flex items-center space-x-2 md:space-x-4">
+    <button (click)="onLogin()" class="text-orange-500 hover:text-orange-600 text-sm font-medium">LOGIN</button>
+    <button (click)="onSignUp()"
+      class="bg-orange-500 text-white px-4 md:px-6 py-2 rounded-full text-sm font-medium hover:bg-orange-600">
+      SIGN UP
+    </button>
+  </div>
+</nav>
+
+<!-- Hero Content -->
+<div id="home" class="max-w-screen overflow-hidden mx-auto px-4 md:px-8 pb-10">
+  <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start relative">
+
+    <!-- Left -->
+    <div class="pt-6 md:pl-6 space-y-6">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium text-red-500 font-[Caprasimo] leading-tight">
+        All Fast Food is<br>
+        <span>
+          Available at <br>
+          <span class="relative inline-block ml-1">
+            <span class="relative z-10 text-red-500">Foodie</span>
+            <svg class="absolute -bottom-1 left-0 w-full h-4 md:h-6 -z-0 opacity-60" viewBox="0 0 100 10"
+              preserveAspectRatio="none">
+              <path d="M0,5 C25,10 75,0 100,5" stroke="#facc15" stroke-width="3" fill="none" stroke-linecap="round" />
+            </svg>
           </span>
-        </h1>
+        </span>
+      </h1>
 
-        <div class="flex items-center space-x-3 text-gray-600 text-lg">
-          <div class="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center">
-            <span class="text-white text-base">👤</span>
-          </div>
-          <p class="leading-relaxed">
-            We Are Just A Click Away When You<br>
-            Crave For Delicious Fast Food
-          </p>
+      <div class="flex items-center space-x-3 text-gray-600 text-base md:text-lg">
+        <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center">
+          <span class="text-white text-base">👤</span>
         </div>
+        <p class="leading-relaxed">
+          We Are Just A Click Away When You<br>
+          Crave For Delicious Fast Food
+        </p>
+      </div>
 
-        <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-5 border border-white/20 shadow-lg max-w-lg">
-          <div class="flex items-center justify-between">
-            <div>
-              <h3 class="text-2xl font-bold text-gray-800">{{ currentFood.name }}</h3>
-              <p class="text-3xl font-bold text-orange-500">{{ currentFood.price }}</p>
-            </div>
-            <div class="text-5xl">{{ currentFood.emoji }}</div>
+      <div class="bg-white/70 backdrop-blur-sm rounded-2xl p-4 md:p-5 border border-white/20 shadow-lg max-w-full md:max-w-lg">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold text-gray-800">{{ currentFood.name }}</h3>
+            <p class="text-2xl md:text-3xl font-bold text-orange-500">{{ currentFood.price }}</p>
           </div>
-        </div>
-
-        <div class="flex items-center space-x-5 pt-4">
-          <button (click)="onBuyNow()"
-            class="bg-orange-500 text-white px-10 py-4 rounded-full font-semibold hover:bg-orange-600 transition hover:scale-105 shadow-lg flex items-center space-x-2">
-            <span class="w-4 h-4 bg-yellow-400 rounded-full"></span>
-            <span>Buy Now</span>
-          </button>
-          <button (click)="onHowToOrder()"
-            class="border-2 border-gray-300 text-gray-700 px-10 py-4 rounded-full font-semibold hover:border-orange-500 hover:text-orange-500 transition">
-            How To Order
-          </button>
+          <div class="text-4xl md:text-5xl">{{ currentFood.emoji }}</div>
         </div>
       </div>
 
-      <!-- Right -->
-      <div class="relative pt-8 flex flex-col items-center">
-        <!-- Diagonal Background Layer -->
-        <div class="absolute inset-0 z-10 pointer-events-none">
-          <div class="w-full h-full clip-diagonal transition-all duration-500"
-            [ngStyle]="{ 'background': currentFood.bgColor }"></div>
-        </div>
+      <div class="flex flex-wrap gap-4 pt-4">
+        <button (click)="onBuyNow()"
+          class="bg-orange-500 text-white px-6 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:bg-orange-600 transition hover:scale-105 shadow-lg flex items-center space-x-2">
+          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+          <span>Buy Now</span>
+        </button>
+        <button (click)="onHowToOrder()"
+          class="border-2 border-gray-300 text-gray-700 px-6 md:px-10 py-3 md:py-4 rounded-full font-semibold hover:border-orange-500 hover:text-orange-500 transition">
+          How To Order
+        </button>
+      </div>
+    </div>
 
-        <!-- Decorative Arrow -->
-        <div class="absolute -top-[2rem] -left-[13rem] z-10 pointer-events-none hidden sm:block">
-          <img src="assets/arrow.png" alt="Arrow" class="w-[52%] h-auto opacity-30" />
-        </div>
+    <!-- Right -->
+    <div class="relative pt-6 w-full flex flex-col items-center">
+     <!-- Background Diagonal Layer -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+  <div
+    class="w-screen h-full"
+    [ngStyle]="{ 'background': currentFood.bgColor }"
+    style="
+      
+      clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+    ">
+  </div>
+</div>
 
-        <!-- Image -->
-        <div class="relative z-10 transition-transform duration-300 hover:scale-105">
-          <div class="food-image-container" [ngClass]="{
+
+      <!-- Decorative Arrow -->
+      <div class="absolute -top-4 -left-[18rem] z-50 pointer-events-none hidden sm:block">
+        <img src="assets/arrow.png" alt="Arrow" class="w-[32rem] opacity-30" />
+      </div>
+
+      <!-- Image -->
+      <div class="relative z-10 transition-transform duration-300 hover:scale-105">
+        <div class="food-image-container" [ngClass]="{
             'food-enter-animation': animationState === 'enter',
             'food-exit-animation': animationState === 'exit',
             'food-center-animation': animationState === 'center'
           }">
-            <img *ngIf="currentFood.image && currentFood.image !== '/assets/placeholder.png'" [src]="currentFood.image"
-              [alt]="currentFood.name"
-              class="w-[24rem] h-[24rem] lg:w-[26rem] lg:h-[26rem] object-contain drop-shadow-2xl"
-              crossorigin="anonymous" />
+          <img *ngIf="currentFood.image && currentFood.image !== '/assets/placeholder.png'" [src]="currentFood.image"
+            [alt]="currentFood.name"
+            class="w-[16rem] h-[16rem] md:w-[22rem] md:h-[22rem] lg:w-[26rem] lg:h-[26rem] object-contain drop-shadow-2xl"
+            crossorigin="anonymous" />
 
-            <!-- Emoji fallback -->
-            <div class="text-[10rem] drop-shadow-2xl flex items-center justify-center"
-              [style.display]="currentFood.image && currentFood.image !== '/assets/placeholder.png' ? 'none' : 'flex'">
-              {{ currentFood.emoji }}
-            </div>
+          <!-- Emoji fallback -->
+          <div class="text-[6rem] md:text-[8rem] lg:text-[10rem] drop-shadow-2xl flex items-center justify-center"
+            [style.display]="currentFood.image && currentFood.image !== '/assets/placeholder.png' ? 'none' : 'flex'">
+            {{ currentFood.emoji }}
           </div>
+        </div>
 
-          <!-- Nutrition Boxes -->
-          <div class="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
-            <div *ngFor="let card of nutritionCards; trackBy: trackByCardId"
-              class="rounded-3xl p-2 shadow-xl border border-gray-100 text-center transition-all hover:-translate-y-2"
-              [style.background-color]="card.bgColor">
+        <!-- Nutrition Boxes -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-full">
+          <div *ngFor="let card of nutritionCards; trackBy: trackByCardId"
+            class="rounded-3xl p-2 shadow-xl border border-gray-100 text-center transition-all hover:-translate-y-2"
+            [style.background-color]="card.bgColor">
 
-              <!-- Top Section: Icon + Value -->
-              <div class="flex justify-center items-center gap-1 text-xl font-bold text-gray-800 mb-1">
-                <span class="text-2xl">{{ card.icon }}</span>
-                <span>{{ card.value }}</span>
-                <span class="text-sm font-normal text-gray-500">{{ card.unit }}</span>
-              </div>
+            <!-- Top Section: Icon + Value -->
+            <div class="flex justify-center items-center gap-1 text-lg md:text-xl font-bold text-gray-800 mb-1">
+              <span class="text-xl md:text-2xl">{{ card.icon }}</span>
+              <span>{{ card.value }}</span>
+              <span class="text-xs font-normal text-gray-500">{{ card.unit }}</span>
+            </div>
 
-              <!-- Label -->
-              <p class="text-gray-700 font-semibold text-sm tracking-wide uppercase mb-1">
-                {{ card.label }}
-              </p>
+            <!-- Label -->
+            <p class="text-gray-700 font-semibold text-xs md:text-sm tracking-wide uppercase mb-1">
+              {{ card.label }}
+            </p>
 
-              <!-- Unique Wavy Line with Curved Edges -->
-              <div class="w-full h-3 overflow-hidden rounded-full">
-                <svg class="w-full h-full opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0,5 Q25,10 50,5 T100,5" [attr.stroke]="card.iconColor" stroke-width="3" fill="none"
-                    stroke-linecap="round" />
-                </svg>
-              </div>
+            <!-- Wavy Line -->
+            <div class="w-full h-2 overflow-hidden rounded-full">
+              <svg class="w-full h-full opacity-50" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0,5 Q25,10 50,5 T100,5" [attr.stroke]="card.iconColor" stroke-width="3" fill="none"
+                  stroke-linecap="round" />
+              </svg>
             </div>
           </div>
         </div>
       </div>
     </div>
+
   </div>
+</div>
+
 
   <!-- About Us Section -->
   <section id="about" class="py-12 sm:py-16 lg:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
       <div class="text-center mb-12 sm:mb-16">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">About <span
-            class="text-orange-500">Foodie</span></h2>
-        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Discover the story behind our passion for
-          delivering exceptional fast food experiences</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">About <span class="text-orange-500">Foodie</span></h2>
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Discover the story behind our passion for delivering exceptional fast food experiences</p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -150,8 +159,8 @@
           <div class="space-y-4">
             <h3 class="text-xl sm:text-2xl font-bold text-gray-800">Our Story</h3>
             <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-              Founded in 2020, Foodie began as a small family restaurant with a big dream: to serve delicious,
-              high-quality fast food that brings people together. What started as a single location has grown
+              Founded in 2020, Foodie began as a small family restaurant with a big dream: to serve delicious, 
+              high-quality fast food that brings people together. What started as a single location has grown 
               into a beloved brand known for fresh ingredients and exceptional service.
             </p>
           </div>
@@ -169,22 +178,19 @@
 
           <div class="space-y-3">
             <div class="flex items-center space-x-3">
-              <div
-                class="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <span class="text-white text-xs sm:text-sm">✓</span>
               </div>
               <span class="text-gray-700 text-sm sm:text-base">Fresh ingredients sourced daily</span>
             </div>
             <div class="flex items-center space-x-3">
-              <div
-                class="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <span class="text-white text-xs sm:text-sm">✓</span>
               </div>
               <span class="text-gray-700 text-sm sm:text-base">30-minute delivery guarantee</span>
             </div>
             <div class="flex items-center space-x-3">
-              <div
-                class="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <div class="w-5 h-5 sm:w-6 sm:h-6 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <span class="text-white text-xs sm:text-sm">✓</span>
               </div>
               <span class="text-gray-700 text-sm sm:text-base">24/7 customer support</span>
@@ -193,8 +199,7 @@
         </div>
 
         <div class="relative order-first lg:order-last">
-          <div
-            class="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl p-6 sm:p-8 h-64 sm:h-80 lg:h-96 flex items-center justify-center">
+          <div class="bg-gradient-to-br from-orange-100 to-red-100 rounded-3xl p-6 sm:p-8 h-64 sm:h-80 lg:h-96 flex items-center justify-center">
             <div class="text-6xl sm:text-7xl lg:text-8xl">🍽️</div>
           </div>
           <div class="absolute -bottom-4 sm:-bottom-6 -right-4 sm:-right-6 bg-white rounded-2xl p-3 sm:p-4 shadow-xl">
@@ -212,22 +217,18 @@
   </section>
 
   <!-- How It Works Section -->
-  <section id="how-it-works"
-    class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50 relative overflow-hidden">
+  <section id="how-it-works" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-orange-50 via-pink-50 to-purple-50 relative overflow-hidden">
     <!-- Background Decorations -->
     <div class="absolute top-10 left-10 w-20 h-20 bg-orange-200 rounded-full opacity-20 animate-pulse"></div>
-    <div class="absolute bottom-20 right-20 w-32 h-32 bg-pink-200 rounded-full opacity-20 animate-pulse"
-      style="animation-delay: 1s;"></div>
-    <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-pulse"
-      style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-20 right-20 w-32 h-32 bg-pink-200 rounded-full opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-purple-200 rounded-full opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
       <div class="text-center mb-12 sm:mb-16">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
           How It <span class="text-orange-500 relative">
             Works
-            <svg class="absolute -bottom-2 left-0 w-full h-3 opacity-60" viewBox="0 0 100 10"
-              preserveAspectRatio="none">
+            <svg class="absolute -bottom-2 left-0 w-full h-3 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
               <path d="M0,8 Q50,0 100,8" stroke="#f97316" stroke-width="2" fill="none" stroke-linecap="round" />
             </svg>
           </span>
@@ -238,39 +239,28 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-        <div *ngFor="let step of howItWorksSteps; let i = index; trackBy: trackByStepId" class="relative group"
-          [style.animation-delay]="(i * 200) + 'ms'">
-
+        <div *ngFor="let step of howItWorksSteps; let i = index; trackBy: trackByStepId" class="relative group" [style.animation-delay]="(i * 200) + 'ms'">
+          
           <!-- Step Card -->
-          <div
-            class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 relative overflow-hidden group-hover:scale-105">
-
+          <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 relative overflow-hidden group-hover:scale-105">
+            
             <!-- Background Gradient -->
-            <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-              [style.background]="step.bgGradient"></div>
-
+            <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500" [style.background]="step.bgGradient"></div>
+            
             <!-- Step Number -->
-            <div
-              class="absolute top-0 right-0 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg"
-              [style.background]="step.numberBg">
+            <div class="absolute -top-4 -right-4 w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg" [style.background]="step.numberBg">
               {{ step.number }}
             </div>
 
             <!-- Icon Container -->
             <div class="relative mb-6">
-              <div
-                class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full flex items-center justify-center text-4xl sm:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
-                [style.background]="step.iconBg">
+              <div class="w-20 h-20 sm:w-24 sm:h-24 mx-auto rounded-full flex items-center justify-center text-4xl sm:text-5xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" [style.background]="step.iconBg">
                 {{ step.icon }}
               </div>
-
+              
               <!-- Floating Animation Dots -->
-              <div
-                class="absolute -top-2 -right-2 w-3 h-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce"
-                [style.background]="step.accentColor" style="animation-delay: 0.2s;"></div>
-              <div
-                class="absolute -bottom-2 -left-2 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce"
-                [style.background]="step.accentColor" style="animation-delay: 0.4s;"></div>
+              <div class="absolute -top-2 -right-2 w-3 h-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce" [style.background]="step.accentColor" style="animation-delay: 0.2s;"></div>
+              <div class="absolute -bottom-2 -left-2 w-2 h-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-bounce" [style.background]="step.accentColor" style="animation-delay: 0.4s;"></div>
             </div>
 
             <!-- Content -->
@@ -281,21 +271,17 @@
               <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                 {{ step.description }}
               </p>
-
+              
               <!-- Action Button -->
-              <button (click)="onStepAction(step.id)"
-                class="inline-flex items-center space-x-2 text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors group-hover:scale-105">
+              <button (click)="onStepAction(step.id)" class="inline-flex items-center space-x-2 text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors group-hover:scale-105">
                 <span>{{ step.actionText }}</span>
                 <span class="transform transition-transform group-hover:translate-x-1">→</span>
               </button>
             </div>
 
             <!-- Connecting Line (Hidden on mobile) -->
-            <div *ngIf="i < howItWorksSteps.length - 1"
-              class="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-orange-300 to-pink-300 transform -translate-y-1/2 z-20">
-              <div
-                class="absolute right-0 top-1/2 w-2 h-2 bg-orange-400 rounded-full transform -translate-y-1/2 animate-pulse">
-              </div>
+            <div *ngIf="i < howItWorksSteps.length - 1" class="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-orange-300 to-pink-300 transform -translate-y-1/2 z-20">
+              <div class="absolute right-0 top-1/2 w-2 h-2 bg-orange-400 rounded-full transform -translate-y-1/2 animate-pulse"></div>
             </div>
           </div>
         </div>
@@ -305,15 +291,12 @@
       <div class="text-center mt-12 sm:mt-16">
         <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-6 sm:p-8 shadow-xl max-w-2xl mx-auto">
           <h3 class="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Ready to Get Started?</h3>
-          <p class="text-gray-600 mb-6 text-sm sm:text-base">Join thousands of satisfied customers and experience the
-            easiest way to order food!</p>
+          <p class="text-gray-600 mb-6 text-sm sm:text-base">Join thousands of satisfied customers and experience the easiest way to order food!</p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <button (click)="onOrderNow()"
-              class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-lg">
+            <button (click)="onOrderNow()" class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-8 py-4 rounded-full font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-300 hover:scale-105 shadow-lg">
               🚀 Order Now
             </button>
-            <button (click)="onDownloadApp()"
-              class="border-2 border-orange-500 text-orange-500 px-8 py-4 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300">
+            <button (click)="onDownloadApp()" class="border-2 border-orange-500 text-orange-500 px-8 py-4 rounded-full font-semibold hover:bg-orange-500 hover:text-white transition-all duration-300">
               📱 Call & Book
             </button>
           </div>
@@ -326,16 +309,15 @@
   <section id="menu" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-orange-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
       <div class="text-center mb-12 sm:mb-16">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Our <span
-            class="text-orange-500">Menu</span></h2>
-        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Explore our delicious selection of fast food
-          favorites</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Our <span class="text-orange-500">Menu</span></h2>
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Explore our delicious selection of fast food favorites</p>
       </div>
 
       <!-- Menu Toggle Buttons -->
       <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
         <button *ngFor="let category of menuCategories; trackBy: trackByCategoryId"
-          (click)="selectMenuCategory(category.id)" [class]="'px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ' + 
+          (click)="selectMenuCategory(category.id)"
+          [class]="'px-4 sm:px-6 lg:px-8 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ' + 
                    (activeMenuCategory === category.id ? 
                     'bg-orange-500 text-white shadow-lg scale-105' : 
                     'bg-white text-gray-700 hover:bg-orange-100 hover:text-orange-600 shadow-md')">
@@ -349,14 +331,13 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
         <div *ngFor="let item of filteredMenuItems; trackBy: trackByMenuItemId"
           class="bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-
+          
           <div class="relative h-32 sm:h-40 lg:h-48 overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-br opacity-20" [style.background]="item.bgGradient"></div>
             <div class="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl lg:text-6xl">
               {{ item.emoji }}
             </div>
-            <div
-              class="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1">
+            <div class="absolute top-2 sm:top-4 right-2 sm:right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1">
               <span class="text-xs sm:text-sm font-bold text-orange-500">{{ item.price }}</span>
             </div>
           </div>
@@ -364,8 +345,8 @@
           <div class="p-4 sm:p-6">
             <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">{{ item.name }}</h3>
             <p class="text-gray-600 text-xs sm:text-sm mb-4 leading-relaxed line-clamp-2">{{ item.description }}</p>
-
-            <div class="flex items-center justify-between mb-4 text-xs sm:text-sm">
+            
+            <div class="flex items-center justify-between text-xs sm:text-sm">
               <div class="flex items-center space-x-1 sm:space-x-2">
                 <span class="text-yellow-400">⭐</span>
                 <span class="font-medium text-gray-700">{{ item.rating }}</span>
@@ -373,61 +354,162 @@
               </div>
               <div class="text-gray-500">{{ item.prepTime }} min</div>
             </div>
-
-            <button (click)="addToCart(item)"
-              class="w-full bg-orange-500 text-white py-2 sm:py-3 rounded-xl sm:rounded-2xl font-semibold hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2 text-sm sm:text-base">
-              <span>🛒</span>
-              <span>Blank Button</span>
-            </button>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Customer Reviews Section -->
-  <section id="reviews" class="py-12 sm:py-16 lg:py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+  <!-- Special Offers Section -->
+  <section id="offers" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
+    <!-- Background Animation -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-20 w-40 h-40 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-pulse"></div>
+      <div class="absolute bottom-20 right-20 w-60 h-60 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+      <div class="absolute top-1/2 left-1/2 w-32 h-32 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
       <div class="text-center mb-12 sm:mb-16">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">What Our <span
-            class="text-orange-500">Customers</span> Say</h2>
-        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Real reviews from real customers who love our
-          food</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Special <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">Offers</span>
+        </h2>
+        <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">
+          Don't miss out on our amazing deals and limited-time offers!
+        </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-        <div *ngFor="let review of customerReviews; trackBy: trackByReviewId"
-          class="bg-gradient-to-br from-gray-50 to-orange-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-
-          <div class="flex items-center mb-4">
-            <div
-              class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-lg sm:text-2xl mr-3 sm:mr-4 flex-shrink-0"
-              [style.background]="review.avatarBg">
-              {{ review.avatar }}
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div *ngFor="let offer of specialOffers; trackBy: trackByOfferId"
+          class="relative group">
+          
+          <!-- Offer Card -->
+          <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-6 sm:p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden">
+            
+            <!-- Discount Badge -->
+            <div class="z-50 absolute top-3 right-0 w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg animate-bounce">
+              {{ offer.discount }}
             </div>
-            <div class="min-w-0 flex-1">
-              <h4 class="font-bold text-gray-800 text-sm sm:text-base truncate">{{ review.name }}</h4>
-              <div class="flex items-center">
-                <div class="flex text-yellow-400 mr-2">
-                  <span *ngFor="let star of getStarArray(review.rating)" class="text-xs sm:text-sm">⭐</span>
+
+            <!-- Offer Icon -->
+            <div class="text-6xl sm:text-7xl mb-6 text-center group-hover:scale-110 transition-transform duration-500">
+              {{ offer.icon }}
+            </div>
+
+            <!-- Content -->
+            <div class="text-center">
+              <h3 class="text-xl sm:text-2xl font-bold mb-3 group-hover:text-yellow-400 transition-colors">
+                {{ offer.title }}
+              </h3>
+              <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                {{ offer.description }}
+              </p>
+              
+              <!-- Offer Details -->
+              <div class="space-y-2 mb-6">
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-gray-400">Valid Until:</span>
+                  <span class="text-yellow-400 font-semibold">{{ offer.validUntil }}</span>
                 </div>
-                <span class="text-xs sm:text-sm text-gray-500">{{ review.date }}</span>
+                <div class="flex justify-between items-center text-sm">
+                  <span class="text-gray-400">Min Order:</span>
+                  <span class="text-green-400 font-semibold">{{ offer.minOrder }}</span>
+                </div>
               </div>
+
+              <!-- Action Button -->
+              <button 
+                (click)="claimOffer(offer.id)"
+                class="w-full bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 py-3 rounded-2xl font-bold hover:from-yellow-500 hover:to-orange-500 transition-all duration-300 hover:scale-105 shadow-lg">
+                {{ offer.buttonText }}
+              </button>
             </div>
-          </div>
 
-          <p class="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">{{ review.comment }}</p>
-
-          <div class="flex items-center justify-between text-xs sm:text-sm">
-            <span class="text-orange-500 font-medium">{{ review.orderType }}</span>
-            <span class="text-gray-500">Verified Purchase</span>
+            <!-- Sparkle Effects -->
+            <div class="absolute top-4 left-4 w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping"></div>
+            <div class="absolute bottom-4 right-4 w-3 h-3 bg-pink-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-ping" style="animation-delay: 0.3s;"></div>
           </div>
         </div>
       </div>
 
+      <!-- Limited Time Banner -->
+      <div class="mt-12 sm:mt-16 text-center">
+        <div class="inline-flex items-center space-x-4 bg-gradient-to-r from-red-500 to-pink-500 px-8 py-4 rounded-full shadow-2xl animate-pulse">
+          <span class="text-2xl">⏰</span>
+          <span class="font-bold text-lg">Limited Time Offers - Order Now!</span>
+          <span class="text-2xl">🔥</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews Section with Slider -->
+  <section id="reviews" class="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">What Our <span class="text-orange-500">Customers</span> Say</h2>
+        <p class="text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">Real reviews from real customers who love our food</p>
+      </div>
+
+      <!-- Reviews Slider Container -->
+      <div class="relative">
+        <!-- Reviews Slider -->
+        <div class="reviews-slider-container overflow-hidden">
+          <div class="reviews-slider flex transition-transform duration-500 ease-in-out" 
+               [style.transform]="'translateX(-' + (currentReviewSlide * 100) + '%)'">
+            
+            <!-- Review Slides -->
+            <div *ngFor="let slideReviews of reviewSlides; let slideIndex = index; trackBy: trackBySlideIndex"
+                 class="w-full flex-shrink-0">
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                <div *ngFor="let review of slideReviews; trackBy: trackByReviewId"
+                     class="review-card bg-gradient-to-br from-gray-50 to-orange-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                     [ngClass]="{
+                       'review-enter-animation': reviewAnimationState === 'enter' && currentReviewSlide === slideIndex,
+                       'review-exit-animation': reviewAnimationState === 'exit' && currentReviewSlide === slideIndex,
+                       'review-center-animation': reviewAnimationState === 'center' && currentReviewSlide === slideIndex
+                     }">
+                  
+                  <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-lg sm:text-2xl mr-3 sm:mr-4 flex-shrink-0"
+                         [style.background]="review.avatarBg">
+                      {{ review.avatar }}
+                    </div>
+                    <div class="min-w-0 flex-1">
+                      <h4 class="font-bold text-gray-800 text-sm sm:text-base truncate">{{ review.name }}</h4>
+                      <div class="flex items-center">
+                        <div class="flex text-yellow-400 mr-2">
+                          <span *ngFor="let star of getStarArray(review.rating)" class="text-xs sm:text-sm">⭐</span>
+                        </div>
+                        <span class="text-xs sm:text-sm text-gray-500">{{ review.date }}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">{{ review.comment }}</p>
+                  
+                  <div class="flex items-center justify-between text-xs sm:text-sm">
+                    <span class="text-orange-500 font-medium">{{ review.orderType }}</span>
+                    <span class="text-gray-500">Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider Navigation Dots -->
+        <div class="flex justify-center mt-8 space-x-2">
+          <button *ngFor="let slide of reviewSlides; let i = index"
+                  (click)="goToReviewSlide(i)"
+                  [class]="'w-3 h-3 rounded-full transition-all duration-300 ' + 
+                           (currentReviewSlide === i ? 'bg-orange-500 scale-125' : 'bg-gray-300 hover:bg-orange-300')">
+          </button>
+        </div>
+      </div>
+
       <!-- Review Stats -->
-      <div
-        class="mt-12 sm:mt-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white">
+      <div class="mt-12 sm:mt-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-white">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 text-center">
           <div>
             <div class="text-2xl sm:text-3xl font-bold mb-2">4.9</div>
@@ -454,10 +536,8 @@
   <section id="contact" class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
       <div class="text-center mb-12 sm:mb-16">
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Get In <span class="text-orange-500">Touch</span>
-        </h2>
-        <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">Visit us, call us, or order online. We're here
-          to serve you!</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Get In <span class="text-orange-500">Touch</span></h2>
+        <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto">Visit us, call us, or order online. We're here to serve you!</p>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
@@ -467,8 +547,7 @@
             <h3 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Contact Information</h3>
             <div class="space-y-4 sm:space-y-6">
               <div class="flex items-start space-x-4">
-                <div
-                  class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <span class="text-lg sm:text-xl">📍</span>
                 </div>
                 <div>
@@ -476,10 +555,9 @@
                   <div class="text-gray-300 text-sm sm:text-base">123 Food Street, Taste City, TC 12345</div>
                 </div>
               </div>
-
+              
               <div class="flex items-start space-x-4">
-                <div
-                  class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <span class="text-lg sm:text-xl">📞</span>
                 </div>
                 <div>
@@ -487,21 +565,19 @@
                   <div class="text-gray-300 text-sm sm:text-base">+1 (555) 123-FOOD</div>
                 </div>
               </div>
-
+              
               <div class="flex items-start space-x-4">
-                <div
-                  class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <span class="text-lg sm:text-xl">✉️</span>
                 </div>
                 <div>
                   <div class="font-semibold text-sm sm:text-base">Email</div>
-                  <div class="text-gray-300 text-sm sm:text-base">hellofoodie.com</div>
+                  <div class="text-gray-300 text-sm sm:text-base">hellooodie.com</div>
                 </div>
               </div>
-
+              
               <div class="flex items-start space-x-4">
-                <div
-                  class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
                   <span class="text-lg sm:text-xl">🕒</span>
                 </div>
                 <div>
@@ -516,16 +592,13 @@
           <div>
             <h4 class="text-lg sm:text-xl font-bold mb-4">Follow Us</h4>
             <div class="flex space-x-4">
-              <button
-                class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition text-lg sm:text-xl">
+              <button class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition text-lg sm:text-xl">
                 <span>📘</span>
               </button>
-              <button
-                class="w-10 h-10 sm:w-12 sm:h-12 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition text-lg sm:text-xl">
+              <button class="w-10 h-10 sm:w-12 sm:h-12 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition text-lg sm:text-xl">
                 <span>📷</span>
               </button>
-              <button
-                class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition text-lg sm:text-xl">
+              <button class="w-10 h-10 sm:w-12 sm:h-12 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition text-lg sm:text-xl">
                 <span>🐦</span>
               </button>
             </div>
@@ -567,16 +640,13 @@
             Delivering happiness one meal at a time. Fresh, fast, and always delicious.
           </p>
           <div class="flex space-x-4">
-            <button
-              class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+            <button class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
               <span class="text-sm">📘</span>
             </button>
-            <button
-              class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+            <button class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
               <span class="text-sm">📷</span>
             </button>
-            <button
-              class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
+            <button class="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center hover:bg-orange-600 transition">
               <span class="text-sm">🐦</span>
             </button>
           </div>
@@ -589,6 +659,7 @@
             <li><a href="#home" class="hover:text-orange-500 transition">Home</a></li>
             <li><a href="#about" class="hover:text-orange-500 transition">About Us</a></li>
             <li><a href="#menu" class="hover:text-orange-500 transition">Menu</a></li>
+            <li><a href="#offers" class="hover:text-orange-500 transition">Offers</a></li>
             <li><a href="#reviews" class="hover:text-orange-500 transition">Reviews</a></li>
             <li><a href="#contact" class="hover:text-orange-500 transition">Contact</a></li>
           </ul>
@@ -613,8 +684,7 @@
           <div class="space-y-3">
             <input type="email" placeholder="Enter your email"
               class="w-full px-4 py-3 rounded-xl sm:rounded-2xl bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm sm:text-base">
-            <button
-              class="w-full bg-orange-500 text-white py-3 rounded-xl sm:rounded-2xl font-semibold hover:bg-orange-600 transition-colors duration-300 text-sm sm:text-base">
+            <button class="w-full bg-orange-500 text-white py-3 rounded-xl sm:rounded-2xl font-semibold hover:bg-orange-600 transition-colors duration-300 text-sm sm:text-base">
               Subscribe
             </button>
           </div>

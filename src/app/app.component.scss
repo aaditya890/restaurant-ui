@@ -50,6 +50,158 @@
   }
 }
 
+/* Review Animation Keyframes */
+@keyframes review-enter-from-right {
+  0% {
+    transform: translateX(50px) scale(0.9);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  50% {
+    transform: translateX(10px) scale(0.95);
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes review-exit-to-left {
+  0% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  50% {
+    transform: translateX(-10px) scale(0.95);
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translateX(-50px) scale(0.9);
+    opacity: 0;
+    filter: blur(4px);
+  }
+}
+
+@keyframes review-center-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Enhanced diagonal clip for full coverage */
+.clip-diagonal-full {
+  clip-path: polygon(65% 30%, 60% 0%,0% 100%, 0% 100%);
+}
+
+/* Ensure hero section takes full viewport height */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Better responsive handling for hero section */
+@media (max-width: 1024px) {
+  .clip-diagonal-full {
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .clip-diagonal-full {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  
+  /* Adjust hero layout for mobile */
+  .min-h-calc-100vh-minus-80px {
+    min-height: calc(100vh - 80px);
+  }
+}
+
+@media (max-width: 640px) {
+  .clip-diagonal-full {
+    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+/* Enhanced nutrition cards styling */
+.nutrition-card-enhanced {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Floating animation for decorative elements */
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 3s ease-in-out infinite;
+}
+
+/* Arrow animation */
+@keyframes arrow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.arrow-animated {
+  animation: arrow-pulse 2s ease-in-out infinite;
+}
+
+/* Ensure proper z-index layering */
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Improve mobile hero section spacing */
+@media (max-width: 640px) {
+  .hero-mobile-spacing {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+
+/* Enhanced food image container */
+.food-image-enhanced {
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.15));
+}
+
+/* Better nutrition cards positioning */
+.nutrition-cards-container {
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
 /* Utility Classes for Angular ngClass Bindings */
 .food-enter-animation {
   animation: food-enter-from-right 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -63,6 +215,18 @@
   animation: food-center-float 4s ease-in-out infinite;
 }
 
+.review-enter-animation {
+  animation: review-enter-from-right 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.review-exit-animation {
+  animation: review-exit-to-left 0.4s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+.review-center-animation {
+  animation: review-center-float 3s ease-in-out infinite;
+}
+
 .clip-diagonal {
   clip-path: polygon(40% 30%, 100% 0%, 100% 100%, 0% 100%);
 }
@@ -70,6 +234,11 @@
 /* Smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar */
@@ -133,6 +302,13 @@ html {
   .mobile-text-center {
     text-align: center;
   }
+
+  /* Mobile-specific review slider adjustments */
+  .reviews-slider-container {
+    .review-card {
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 /* Improved hover effects for touch devices */
@@ -165,4 +341,78 @@ textarea:focus {
 
 .delay-400 {
   animation-delay: 400ms;
+}
+
+/* Reviews slider specific styles */
+.reviews-slider-container {
+  position: relative;
+  width: 100%;
+}
+
+.reviews-slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Mobile menu overlay and slide-in animation */
+@media (max-width: 1024px) {
+  .mobile-menu-overlay {
+    backdrop-filter: blur(4px);
+  }
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+  .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1024px) {
+  .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Ensure proper spacing on very small screens */
+@media (max-width: 375px) {
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* Special animations for offers section */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Ensure mobile menu doesn't cause horizontal scroll */
+.mobile-menu {
+  max-width: calc(100vw - 2rem);
+}
+
+/* Fix for potential overflow issues */
+* {
+  box-sizing: border-box;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
